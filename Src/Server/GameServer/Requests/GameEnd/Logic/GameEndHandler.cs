@@ -59,8 +59,8 @@ namespace Puniemu.Src.Server.GameServer.Requests.GameEnd.Logic
 
             // PLACEHOLDER
             res.UserGameResultData.Score = deserialized.Score;
-            res.UserGameResultData.Exp = deserialized.Score;
-            res.UserGameResultData.Money = deserialized.Score;
+            res.UserGameResultData.Exp = Server.GameServer.Logic.MoneyExpManager.ScoreToExp(deserialized.Score);
+            res.UserGameResultData.Money = Server.GameServer.Logic.MoneyExpManager.ScoreToMoney(deserialized.Score);
             res.UserGameResultData.StageId = deserialized.StageId;
 
             var MstEnemyParam = new TableParser.Logic.TableParser(JsonConvert.DeserializeObject<Dictionary<string, string>>(DataManager.Logic.DataManager.GameDataManager.GamedataCache["ywp_mst_youkai_enemy_param"]!)!["tableData"]);
@@ -424,3 +424,4 @@ namespace Puniemu.Src.Server.GameServer.Requests.GameEnd.Logic
         }
     }
 }
+
