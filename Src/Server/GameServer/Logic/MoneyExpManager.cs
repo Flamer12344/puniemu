@@ -17,6 +17,10 @@ namespace Puniemu.Src.Server.GameServer.Logic
             {
                 return 1;
             }
+            /*
+                Or a simpler but less precise formula:
+                0.7 * √score
+            */
             return (int)money;
         }
     
@@ -34,6 +38,11 @@ namespace Puniemu.Src.Server.GameServer.Logic
             {
                 return 1;
             }
+            /*
+                Or a simpler but less precise formula:
+                3.6 * √score
+            */
+
             return (int)exp;
         }
     }
